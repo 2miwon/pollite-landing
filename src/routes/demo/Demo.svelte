@@ -6,7 +6,7 @@
 
     const addrScript = "https://script.google.com/macros/s/AKfycbzKMbePd_alOjtPPjIqdsNcs9gj3ym3lwjLaL9yLyU9AdSwc9_2oaIfvePK3phI4rK2nw/exec";
     let ip = "unknown";
-
+    
     // 쿠키에서 값을 가져오는 함수
     function getCookieValue(name: string) {
 		const value = "; " + document.cookie;
@@ -100,6 +100,8 @@
     const job = writable("");
     const email = writable("");
     const advice = writable("");
+    const isLoading = writable(false);
+    const isPopupVisible = writable(false);
 
     async function handleSubmit() {
         let emailValue = '';
@@ -115,6 +117,8 @@
             return;
         }
 
+        isPopupVisible.set(true);
+        isLoading.set(true);
         const finalData = JSON.stringify({
             "id": getUVfromCookie(),
             "email": emailValue,
@@ -127,6 +131,8 @@
             // alert(JSON.stringify(response));
         } catch (error) {
             console.error('데이터 전송 중 오류 발생:', error);
+        } finally {
+            isLoading.set(false);
         }
     }
 
@@ -162,6 +168,20 @@
     });
 
 </script>
+
+{#if $isPopupVisible}
+    <div 
+        id="popup" 
+        class="fixed inset-0 flex items-center justify-center bg-black y-500 bg-opacity-75 z-50 text-white"
+        on:click={() => isPopupVisible.set(false)}
+        >
+        {#if $isLoading}
+            <div class="loading">loading ...</div>
+        {:else}
+            <h1>감사합니다.</h1>
+        {/if}
+    </div>
+{/if}
 
 <section id="next" class="w-full flex justify-center py-[100px]">
     <div class="lg:max-w-[906px] 2xl:max-w-[1300px] w-full flex flex-col items-center">
