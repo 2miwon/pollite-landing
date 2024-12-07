@@ -13,3 +13,8 @@
 	<!-- <Footer /> -->
 </ParaglideJS>
 
+<style>
+  html {
+    font-family: 'Pretendard Variable', sans-serif;
+  }
+</style>

@@ -129,8 +129,10 @@
             const response = await axios.get(`${addrScript}?action=insert&table=tab_final&data=${encodeURIComponent(finalData)}`);
             console.log(response.data.data);
             // alert(JSON.stringify(response));
+            isLoading.set(false);
         } catch (error) {
             console.error('데이터 전송 중 오류 발생:', error);
+            isLoading.set(false);
         } finally {
             isLoading.set(false);
         }

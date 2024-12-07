@@ -7,7 +7,7 @@
 <HeroSection 
     title="Most Trustable Legal AI" 
     subtitle="for Next-Generation Legal Practice" 
-    button="자세히 알아보기" 
+    button="Try Now" 
     goto_section="next" 
 />
 <Demo />

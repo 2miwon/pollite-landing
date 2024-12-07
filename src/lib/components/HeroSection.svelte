@@ -10,6 +10,7 @@
           section.scrollIntoView({ behavior: "smooth" });
         }
     }
+
 </script>
 
 <div class="relative w-screen h-screen flex flex-col items-center justify-center bg-[url('/image/landing/justitia-2638601_1920.png')] bg-no-repeat bg-center bg-cover font-pretendard">
@@ -20,8 +21,11 @@
         <h2 class="md:text-4xl text-xl font-bold text-white text-center md:pl-[20px]">{subtitle}</h2>
     </div>
     <div class="absolute w-full bottom-0 mb-[100px] flex flex-col items-center justify-center z-10">
-        <button class="bg-white text-text font-bold py-2 px-4 rounded-full" on:click={scrollToSection}>
+        <a 
+            class="bg-white text-text text-xl font-bold py-2 px-4 rounded-full"
+            href="/chat"
+            >
             {button}
-        </button>
+        </a>
     </div>
 </div>
