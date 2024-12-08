@@ -66,6 +66,8 @@
 		"axios": "^1.7.7",
 		"drizzle-orm": "^0.33.0",
 		"esbuild": "^0.24.0",
+		"marked": "^15.0.3",
+		"mongodb": "^6.11.0",
 		"rollup": "^4.24.4",
 		"svelte-routing": "^2.13.0"
 	},

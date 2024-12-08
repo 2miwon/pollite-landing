@@ -7,8 +7,8 @@
 <HeroSection 
     title="Most Trustable Legal AI" 
     subtitle="for Next-Generation Legal Practice" 
-    button="Try Now" 
-    goto_section="next" 
+    button="→ Try Now" 
+    goto="/chat"
 />
 <Demo />
 <Footer />

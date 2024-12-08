@@ -1,8 +1,9 @@
 <script lang="ts">
-    export let title = "Most Trustable Legal AI";
-    export let subtitle = "for Next-Generation Legal Practice";
-    export let button = "자세히 알아보기";
+    export let title;
+    export let subtitle;
+    export let button;
     export let goto_section = "next";
+    export let goto;
 
     function scrollToSection(event: MouseEvent) {
         const section = document.getElementById(goto_section);
@@ -22,8 +23,8 @@
     </div>
     <div class="absolute w-full bottom-0 mb-[100px] flex flex-col items-center justify-center z-10">
         <a 
-            class="bg-white text-text text-xl font-bold py-2 px-4 rounded-full"
-            href="/chat"
+            class="bg-white text-text text-xl font-bold py-2 px-4 rounded-full w-[150px] h-[55px] text-center justify-center items-center flex"
+            href={goto}
             >
             {button}
         </a>
