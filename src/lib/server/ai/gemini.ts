@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { GEMINI_API_KEY } from '$env/static/private';
+import { sumSystemPrompt } from './prompt';
 
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
 
@@ -35,17 +36,20 @@ interface GenerateContentRequest {
 
 export async function generateContent(
     text: string, 
-    // document: String,
+    content: string,
 ): Promise<GenerateContentResponse> {
     const requestData: GenerateContentRequest = {
         contents: [
             {
                 parts: [
-                    // {
-                    //     text: 'You are a legislative expert system for the National Assembly. Your role is to assist users by providing detailed information and analysis on legislative bills. You should provide clear, concise, and accurate information based on the user\'s queries.'
-                    // },
+                    {
+                        text: sumSystemPrompt
+                    },
                     {
                         text: text
+                    },
+                    {
+                        text: content
                     }
                 ]
             }

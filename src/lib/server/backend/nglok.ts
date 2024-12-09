@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ENDPOINT = 'https://9b64-34-23-122-196.ngrok-free.app/embed';
+const ENDPOINT = 'https://eada-34-106-135-70.ngrok-free.app';
 
 interface Embedding {
     result: string[][];
@@ -20,4 +20,9 @@ export async function getEmbedding(
         console.error('Error fetching embedding:', error);
         throw new Error('Failed to fetch embedding');
     }
+}
+
+export async function getEndpoint(): Promise<string> {
+    const response = await axios.get('https://your-database-endpoint.com/get-ngrok-endpoint');
+    return response.data.endpoint;
 }

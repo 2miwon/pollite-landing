@@ -9,7 +9,7 @@ const client = new Client({
     }
 });
 
-export async function getSearchResults(embeded: any[]): Promise<any> {
+export async function vectorSearch(embeded: any[]): Promise<any> {
     try {
         const response = await client.search({
             index: 'pdf_documents_with_kobert_embeddings',
@@ -30,6 +30,25 @@ export async function getSearchResults(embeded: any[]): Promise<any> {
             ],
             size: 10000
             // scroll: '1m'
+        });
+        return response.hits.hits;
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+
+export async function keywordSearch(keyword: string): Promise<any> {
+    try {
+        const response = await client.search({
+            index: 'pdf_documents',
+            body: {
+                query: {
+                    match: {
+                        content: keyword
+                    }
+                }
+            },
         });
         return response.hits.hits;
     }

@@ -5,7 +5,7 @@
 </script>
 
 <HeroSection 
-    title="Most Trustable Legal AI" 
+    title="Most able Legal AI" 
     subtitle="for Next-Generation Legal Practice" 
     button="→ Try Now" 
     goto="/chat"
