@@ -71,6 +71,9 @@
 		"rollup": "^4.24.4",
 		"svelte-routing": "^2.13.0"
 	},
+	"overrides": {
+		"undici": ">=6.24.0"
+	},
 	"optionalDependencies": {
 		"@rollup/rollup-linux-x64-gnu": "^4.24.4"
 	}
